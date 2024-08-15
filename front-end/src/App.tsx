@@ -12,7 +12,7 @@ export default class App extends Component {
 	context!: ContextType;
 	render() {
 		return (
-			<Router >
+			<Router>
 				<Header />
 				<AnimatePresence>
 					{this.context.cartToggled && <Overlay />}

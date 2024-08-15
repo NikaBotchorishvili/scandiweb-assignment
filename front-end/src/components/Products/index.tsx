@@ -1,8 +1,9 @@
 import { Component } from "react";
 import withRouter, { WithRouterProps } from "../../utils/withRouter";
 import Item from "./Item";
+import { Product } from "../../context/CartContext/types";
 
-const products = [
+const products: Product[] = [
 	{
 		id: "huarache-x-stussy-le",
 		name: "Nike Air Huarache Le",
@@ -196,8 +197,6 @@ const products = [
 	},
 ];
 
-export type Product = typeof products[0];
-
 interface Props extends WithRouterProps {}
 
 class Products extends Component<Props> {
@@ -216,7 +215,9 @@ class Products extends Component<Props> {
 					{title}
 				</h2>
 
-				<div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 w-full items-center justify-center gap-32 ">{items}</div>
+				<div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 w-full items-center justify-center gap-32 ">
+					{items}
+				</div>
 			</section>
 		);
 	}

@@ -1,9 +1,8 @@
 import { Component } from "react";
 import { WithRouterProps } from "../../utils/withRouter";
-import { Product } from ".";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { Product } from "../../context/CartContext/types";
 interface Props extends WithRouterProps {
 	product: Product;
 }
