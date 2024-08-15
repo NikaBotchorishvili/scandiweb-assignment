@@ -12,14 +12,14 @@ export default class App extends Component {
 	context!: ContextType;
 	render() {
 		return (
-			<Router >
+			<Router>
 				<Header />
 				<AnimatePresence>
 					{this.context.cartToggled && <Overlay />}
 				</AnimatePresence>
 				<Routes>
 					<Route path="/" element={<Products />} />
-					<Route path="/:product_id" element={<Product />} />
+						<Route path="/:product_id" element={<Product />} />
 				</Routes>
 			</Router>
 		);

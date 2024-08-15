@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { CartContext, ContextType } from "../context/CartContext";
 export default class Overlay extends Component {
 	static contextType = CartContext;
-	context!: ContextType
+	context!: ContextType;
 	render() {
 		return (
 			<motion.div

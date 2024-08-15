@@ -1,16 +1,20 @@
-import React, { Component } from 'react'
-import withRouter, { WithRouterProps } from '../../utils/withRouter'
+import { Component } from "react";
+import withRouter, { WithRouterProps } from "../../utils/withRouter";
 
-interface Props extends WithRouterProps {
+import ProductDetailsProvider from "../../context/ProductDetails";
+import ProductDetails from "./components/ProductDetails";
+interface Props extends WithRouterProps {}
 
-}
 
 class Product extends Component<Props> {
-  render() {
-    return (
-      <div>Product</div>
-    )
-  }
+	render() {
+	
+		return (
+			<ProductDetailsProvider>
+                <ProductDetails />
+			</ProductDetailsProvider>
+		);
+	}
 }
 
-export default withRouter(Product)
+export default withRouter(Product);

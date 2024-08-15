@@ -6,7 +6,7 @@ export default class Cart extends Component {
 	static contextType = CartContext;
 	context!: ContextType;
 	render() {
-        console.log(this.context.items)
+		console.log(this.context.items);
 		return (
 			<motion.div
 				initial={{ opacity: 0 }}
