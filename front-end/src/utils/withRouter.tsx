@@ -1,6 +1,6 @@
 import queryString from 'query-string';
 import React from 'react';
-import { useNavigate, useParams, useLocation, NavigateFunction, Params } from 'react-router-dom';
+import { useNavigate, useParams, useLocation, NavigateFunction, Params,  } from 'react-router-dom';
 export interface WithRouterProps {
   navigate: NavigateFunction;
   params: Params;

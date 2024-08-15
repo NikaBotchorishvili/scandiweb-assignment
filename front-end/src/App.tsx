@@ -19,7 +19,7 @@ export default class App extends Component {
 				</AnimatePresence>
 				<Routes>
 					<Route path="/" element={<Products />} />
-					<Route path="/:product_id" element={<Product />} />
+						<Route path="/:product_id" element={<Product />} />
 				</Routes>
 			</Router>
 		);

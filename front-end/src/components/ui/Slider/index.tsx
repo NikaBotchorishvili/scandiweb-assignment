@@ -1,10 +1,9 @@
 import { Component } from "react";
-import { WithRouterProps } from "../../../utils/withRouter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
-interface Props extends WithRouterProps {
+interface Props {
 	gallery: string[];
 }
 
