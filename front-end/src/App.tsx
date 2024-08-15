@@ -5,6 +5,7 @@ import Overlay from "./components/Overlay";
 import { ContextType, CartContext } from "./context/CartContext";
 import { AnimatePresence } from "framer-motion";
 import Products from "./components/Products";
+import Product from "./components/Product";
 
 export default class App extends Component {
 	static contextType = CartContext;
@@ -18,6 +19,7 @@ export default class App extends Component {
 				</AnimatePresence>
 				<Routes>
 					<Route path="/" element={<Products />} />
+					<Route path="/:product_id" element={<Product />} />
 				</Routes>
 			</Router>
 		);
