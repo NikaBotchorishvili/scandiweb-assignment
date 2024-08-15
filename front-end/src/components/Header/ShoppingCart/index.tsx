@@ -15,6 +15,7 @@ export default class ShoppingCart extends Component {
 				<FontAwesomeIcon
 					onClick={this.context.toggleCart}
 					icon={faShoppingCart}
+					className="cursor-pointer"
 				/>
 				<AnimatePresence>
 					{this.context.cartToggled && <Cart />}
