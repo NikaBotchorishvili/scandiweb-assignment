@@ -15,7 +15,7 @@ try {
     $rootValue = null;
     $context = null;
 
-    $result = GraphQL::executeQuery($schema, $query, $rootValue, $context, $variableValues);
+    $result = GraphQL::executeQuery(schema: $schema, source: $query, rootValue: $rootValue, contextValue: $context, variableValues: $variableValues);
     $output = $result->toArray();
 } catch (\Exception $e) {
     $output = [
