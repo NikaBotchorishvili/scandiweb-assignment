@@ -9,6 +9,8 @@ import {
 	ProductDetailsContextType,
 } from "../../../context/ProductDetails";
 import { CartContext } from "../../../context/CartContext";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../utils/Animations/PageAnimation";
 const product: ProductType = {
 	id: "huarache-x-stussy-le",
 	name: "Nike Air Huarache Le",
@@ -56,6 +58,44 @@ const product: ProductType = {
 			type: "text",
 			__typename: "AttributeSet",
 		},
+		{
+			id: "Color",
+			items: [
+				{
+					displayValue: "Green",
+					value: "#44FF03",
+					id: "Green",
+					__typename: "Attribute",
+				},
+				{
+					displayValue: "Cyan",
+					value: "#03FFF7",
+					id: "Cyan",
+					__typename: "Attribute",
+				},
+				{
+					displayValue: "Blue",
+					value: "#030BFF",
+					id: "Blue",
+					__typename: "Attribute",
+				},
+				{
+					displayValue: "Black",
+					value: "#000000",
+					id: "Black",
+					__typename: "Attribute",
+				},
+				{
+					displayValue: "White",
+					value: "#FFFFFF",
+					id: "White",
+					__typename: "Attribute",
+				},
+			],
+			name: "Color",
+			type: "swatch",
+			__typename: "AttributeSet",
+		},
 	],
 	prices: [
 		{
@@ -80,7 +120,10 @@ export default class ProductDetails extends Component {
 		return (
 			<CartContext.Consumer>
 				{({ setItems }) => (
-					<main className="flex flex-wrap mt-20 justify-center items-center gap-20 text-primary">
+					<motion.main
+						{...fadeIn}
+						className="flex flex-wrap mt-20 justify-center items-center gap-20 text-primary"
+					>
 						<Slider gallery={product.gallery} />
 						<section className="flex flex-col gap-y-10 max-w-xs w-full">
 							<h1 className="font-bold text-4xl">
@@ -89,10 +132,10 @@ export default class ProductDetails extends Component {
 
 							{attributes.some(
 								(attribute) => attribute.name === "Size"
-							) && <SizeSelector attributes={attributes} />}
+							) && <SizeSelector attributes={attributes.find((attr) => attr.name === "Size")!} />}
 							{attributes.some(
 								(attribute) => attribute.name === "Color"
-							) && <ColorSelector attributes={attributes} />}
+							) && <ColorSelector attributes={attributes.find((attr) => attr.name === "Color")!} />}
 
 							<article className="space-y-2">
 								<h2 className="uppercase text-xl font-bold">
@@ -110,11 +153,11 @@ export default class ProductDetails extends Component {
 							<Button
 								onSubmit={() => {
 									setItems({
-										name: product.name,
+										...product,
+										color: "black",
+										size: "42",
 										quantity: 1,
-										id: 1,
-										color: this.context.color,
-										size: this.context.size,
+										thumbnail: product.gallery[0],
 									});
 								}}
 							>
@@ -128,7 +171,7 @@ export default class ProductDetails extends Component {
 								}}
 							/>
 						</section>
-					</main>
+					</motion.main>
 				)}
 			</CartContext.Consumer>
 		);

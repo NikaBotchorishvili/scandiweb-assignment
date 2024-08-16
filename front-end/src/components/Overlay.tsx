@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { motion } from "framer-motion";
-import { CartContext, ContextType } from "../context/CartContext";
+import { CartContext } from "../context/CartContext";
+import { ContextType } from "../context/CartContext/types";
 export default class Overlay extends Component {
 	static contextType = CartContext;
 	context!: ContextType;

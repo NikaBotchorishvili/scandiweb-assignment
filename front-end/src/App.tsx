@@ -1,11 +1,11 @@
 import { Component } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import Overlay from "./components/Overlay";
-import { ContextType, CartContext } from "./context/CartContext";
+import { CartContext } from "./context/CartContext";
+import { ContextType } from "./context/CartContext/types";
 import { AnimatePresence } from "framer-motion";
-import Products from "./components/Products";
-import Product from "./components/Product";
+import AnimatedRoute from "./components/AnimatedRoutes";
 
 export default class App extends Component {
 	static contextType = CartContext;
@@ -17,10 +17,7 @@ export default class App extends Component {
 				<AnimatePresence>
 					{this.context.cartToggled && <Overlay />}
 				</AnimatePresence>
-				<Routes>
-					<Route path="/" element={<Products />} />
-						<Route path="/:product_id" element={<Product />} />
-				</Routes>
+				<AnimatedRoute />
 			</Router>
 		);
 	}

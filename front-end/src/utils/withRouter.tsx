@@ -1,10 +1,11 @@
 import queryString from 'query-string';
 import React from 'react';
-import { useNavigate, useParams, useLocation, NavigateFunction, Params,  } from 'react-router-dom';
+import { useNavigate, useParams, useLocation, NavigateFunction, Params, Location,  } from 'react-router-dom';
 export interface WithRouterProps {
   navigate: NavigateFunction;
   params: Params;
   query: Record<string, string | string[]>;
+  location: Location<any>;
 }
 
 function withRouter<P extends WithRouterProps>(
@@ -16,7 +17,7 @@ function withRouter<P extends WithRouterProps>(
     const location = useLocation();
     const query = queryString.parse(location.search);
 
-    return <Component {...(props as P)} navigate={navigate} params={params} query={query} />;
+    return <Component {...(props as P)} location={location} navigate={navigate} params={params} query={query} />;
   };
 }
 
