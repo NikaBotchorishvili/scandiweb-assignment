@@ -4,13 +4,14 @@ namespace App\GraphQL;
 
 
 use GraphQL\Type\Definition\Type;
-use  App\GraphQL\Types\CategoryType;
+use App\GraphQL\Types;
 use GraphQL\Type\Definition\ObjectType;
 class Query
 {
     public static function defineQueries()
     {
-        $categoryType = new CategoryType();
+        $categoryType = new Types\CategoryType();
+        $productType = new Types\ProductType();
         return new ObjectType([
             'name' => 'Query',
             'fields' => [
@@ -24,6 +25,10 @@ class Query
                 'categories' => [
                     'type' => Type::listOf($categoryType),
                     'resolve' => static fn () => Resolvers\CategoriesResolver::index(),
+                ],
+                'products' => [
+                    'type' => Type::listOf($productType),
+                    'resolve' => static fn () => Resolvers\ProductResolver::index(),
                 ],
             ],
         ]);
