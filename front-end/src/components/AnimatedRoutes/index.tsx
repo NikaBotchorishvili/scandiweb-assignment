@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Route, Routes } from "react-router-dom";
 import Products from "../Products";
 import Product from "../Product";
-import withRouter, { WithRouterProps } from "../../utils/withRouter";
+import withRouter, { WithRouterProps } from "../../utils/HOCs/withRouter";
 import { AnimatePresence } from "framer-motion";
 import parse from "query-string";
 

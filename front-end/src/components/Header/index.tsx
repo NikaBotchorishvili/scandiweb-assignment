@@ -1,5 +1,5 @@
 import { Component } from "react";
-import withRouter, { WithRouterProps } from "../../utils/withRouter";
+import withRouter, { WithRouterProps } from "../../utils/HOCs/withRouter";
 import NavigationElement from "./NavigationElement";
 import ShoppingCart from "./ShoppingCart";
 interface HeaderProps extends WithRouterProps {}

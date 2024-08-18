@@ -1,8 +1,10 @@
 import { Component } from "react";
-import withRouter, { WithRouterProps } from "../../utils/withRouter";
+import withRouter, { WithRouterProps } from "../../utils/HOCs/withRouter";
 import Item from "./Item";
 import { Product } from "../../context/CartContext/types";
-
+import {apolloClient} from "../../utils/apollo/client";
+import { GET_PRODUCTS } from "../../graphql/queries";
+import {withGraphQLData} from "../../utils/HOCs/withGraphQL"
 const products: Product[] = [
 	{
 		id: "huarache-x-stussy-le",
@@ -200,6 +202,11 @@ const products: Product[] = [
 interface Props extends WithRouterProps {}
 
 class Products extends Component<Props> {
+	componentDidMount() {
+		apolloClient.query({ query: GET_PRODUCTS }).then((res) => {
+			console.log(res);
+		});
+	}
 	render() {
 		const { query } = this.props;
 		const title =
@@ -223,4 +230,4 @@ class Products extends Component<Props> {
 	}
 }
 
-export default withRouter(Products);
+export default withGraphQLData(withRouter(Products), GET_PRODUCTS);

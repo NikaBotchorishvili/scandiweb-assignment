@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { WithRouterProps } from "../../utils/withRouter";
+import { WithRouterProps } from "../../utils/HOCs/withRouter";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Product } from "../../context/CartContext/types";
