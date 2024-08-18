@@ -23,6 +23,7 @@ class PriceResolver
         try {
             $prices = PriceModel::findAll(value: $product_id, column: 'product_id');
             error_log(print_r($prices, true));
+            
             return $prices;
         } catch (Throwable $e) {
             throw $e;

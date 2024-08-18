@@ -40,6 +40,6 @@ abstract class Model
             [
                 'value' => $value,
             ]
-        )->fetchOrFail();
+        )->get();
     }
 }

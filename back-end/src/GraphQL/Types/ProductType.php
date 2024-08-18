@@ -1,6 +1,8 @@
 <?php
-
 namespace App\GraphQL\Types;
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ObjectType;
@@ -29,7 +31,9 @@ class ProductType extends ObjectType
                 'prices' => [
                     'type' => Type::listOf(new PriceType()),
                     'resolve' => function ($product) {
-                        return Resolvers\PriceResolver::findAll($product['id']);
+                        $prices = Resolvers\PriceResolver::findAll($product['id']);
+
+                        return $prices;
                     }
                 ],
             ],
